@@ -1,0 +1,21 @@
+# Ambiente virtual
+venv/
+
+# VS Code
+.vscode/
+
+# Pytest
+.pytest_cache/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Distribuição
+build/
+dist/
+*.egg-info/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
