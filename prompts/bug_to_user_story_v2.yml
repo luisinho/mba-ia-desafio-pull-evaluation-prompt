@@ -13,6 +13,13 @@ kwargs:
   metadata:
     lc_hub_owner: luisowner
     lc_hub_repo: bug_to_user_story_v2
+
+    description: >
+      Converte relatos de bugs em User Stories estruturadas,
+      com critérios de aceitação claros.
+
+    version: "2.0"
+
     techniques:
       - Few-shot Learning
       - Role Prompting

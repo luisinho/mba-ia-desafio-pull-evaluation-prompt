@@ -192,9 +192,11 @@ Status:
 As Figuras 1 e 2 apresentam a execução completa do script `src/evaluate.py`, demonstrando que todas as métricas ficaram acima da nota mínima exigida (0.80).
 
 **Figura 1 – Execução da avaliação do prompt v2 utilizando o dataset com 15 exemplos.**
+
 ![Execução da avaliação](docs/images/avaliacao-01-execucao.png)
 
 **Figura 2 – Métricas finais obtidas pelo prompt otimizado.**
+
 ![Métricas finais](docs/images/avaliacao-02-metricas.png)
 
 
@@ -207,10 +209,12 @@ O dataset de avaliação foi criado no LangSmith a partir do arquivo
 `datasets/bug_to_user_story.jsonl`, contendo os 15 exemplos utilizados durante a avaliação do prompt otimizado.
 
 **Figura 3 – Projeto criado no LangSmith.**
+
 ![Projeto](docs/images/desafio-langchain-prompts.png)
 
 
 **Figura 4 – Dataset contendo os 15 exemplos utilizados na avaliação.**
+
 ![Dataset](docs/images/dataset-15-exemplos.png)
 
 ## Traces

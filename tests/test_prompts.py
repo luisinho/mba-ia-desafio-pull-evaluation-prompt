@@ -6,11 +6,12 @@ import yaml
 import pytest
 from pathlib import Path
 from typing import Any, Dict
-from utils import validate_prompt_structure
 
 # Adicionar src ao path
 BASE_DIR = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(BASE_DIR / "src"))
+
+from utils import validate_prompt_structure
 
 PROMPT_V2_PATH = BASE_DIR / "prompts" / "bug_to_user_story_v2.yml"
 
@@ -138,6 +139,28 @@ class TestPrompts:
 
         assert "Few-shot Learning" in techniques[0]
         assert "Role Prompting" in techniques[1]
+
+    def test_validate_prompt_structure(self):
+        """Verifica a estrutura do prompt usando o validador fornecido."""
+
+        prompt_data = load_prompt(PROMPT_V2_PATH)
+
+        system_prompt = get_system_prompt(prompt_data)
+        metadata = get_metadata(prompt_data)
+
+        validation_data = {
+            "description": metadata.get("description", ""),
+            "system_prompt": system_prompt,
+            "version": metadata.get("version", ""),
+            "techniques_applied": metadata.get("techniques", []),
+        }
+
+        is_valid, errors = validate_prompt_structure(validation_data)
+
+        assert is_valid, (
+            "A estrutura de bug_to_user_story_v2.yml é inválida:\n"
+            + "\n".join(f"- {error}" for error in errors)
+        )
 
 if __name__ == "__main__":
     pytest.main([__file__, "-v", "--tb=short"])
